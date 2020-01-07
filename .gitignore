@@ -106,3 +106,5 @@ gen
 target
 /node_modules/
 /package-lock.json
+/kiftd.iml
+/target/
