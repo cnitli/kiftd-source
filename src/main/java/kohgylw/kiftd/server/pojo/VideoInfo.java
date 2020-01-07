@@ -6,7 +6,7 @@ import kohgylw.kiftd.server.model.Node;
  * 
  * <h2>一种专门针对视频格式的封装</h2>
  * <p>该封装除了具备node对象的属性外，额外增加了“needEncode”属性，其值为“Y”或“N”，用于代表是否需要进行转码。</p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class VideoInfo extends Node{

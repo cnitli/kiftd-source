@@ -1,13 +1,12 @@
 package kohgylw.kiftd.server.util;
 
-import org.springframework.stereotype.*;
-import javax.annotation.*;
-
 import kohgylw.kiftd.server.enumeration.AccountAuth;
 import kohgylw.kiftd.server.exception.FoldersTotalOutOfLimitException;
 import kohgylw.kiftd.server.mapper.*;
 import kohgylw.kiftd.server.model.*;
+import org.springframework.stereotype.*;
 
+import javax.annotation.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -28,7 +27,7 @@ public class FolderUtil {
 	 * 该方法将返回目标文件夹的所有父级文件夹，并以列表的形式返回。如果上级层数超过了Integer.MAX_VALUE，那么只获取最后Integer.MAX_VALUE级。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param fid
 	 *            java.lang.String 要获取的目标文件夹ID
 	 * @return java.util.List

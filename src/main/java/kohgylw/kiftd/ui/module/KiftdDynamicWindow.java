@@ -1,14 +1,10 @@
 package kohgylw.kiftd.ui.module;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-
-import javax.swing.UIManager;
 
 /**
  * 
@@ -17,7 +13,7 @@ import javax.swing.UIManager;
  * 该类中定义了动态窗口绘制的相应操作。以便于所有继承自该类的窗口对象均能够使用动态绘制方法。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class KiftdDynamicWindow {
@@ -96,7 +92,7 @@ public class KiftdDynamicWindow {
 	 * P=当前屏幕尺寸/基准屏幕尺寸（取长宽比例中较小的一个，以便能够在屏幕中显示完全），之后设置显示窗口大小=使用原始窗口大小*P。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param c
 	 *            Container 需要动态调整的容器对象
 	 */
@@ -111,7 +107,7 @@ public class KiftdDynamicWindow {
 	 * 该宽度为kiftd开发时所使用的基准分辨率宽度。请以此宽度为基准进行窗口的设计。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return int 基准宽度-像素
 	 */
 	public int getOriginResolution_W() {
@@ -125,7 +121,7 @@ public class KiftdDynamicWindow {
 	 * 该高度为kiftd开发时所使用的基准分辨率宽度。请以此高度为基准进行窗口的设计。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return int 基准高度-像素
 	 */
 	public int getOriginResolution_H() {
@@ -139,7 +135,7 @@ public class KiftdDynamicWindow {
 	 * 该方法用于定义默认的全局字体样式并自适应调整大小。该方法应该在显示之前进行。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	protected void setUIFont() {
 		Font f = new Font("宋体", Font.PLAIN, (int) (13 * proportion));

@@ -1,9 +1,6 @@
 package kohgylw.kiftd.server.util;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.Random;
@@ -17,7 +14,7 @@ import java.util.Random;
  * 您需要先将本工厂实例化，之后调用next方法来获得一个随机验证码图片的封装对象。该对象包括了一个BufferedImage实例和
  * 一个代表验证码正确内容字符串。创建方法及各项参数意义请见构造器注释。
  * </p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  * @see kohgylw.verification_code.factory.VerificationCode
  */
@@ -38,7 +35,7 @@ public class VerificationCodeFactory {
 	 * 按照传入参数创建指定验证码风格生成工厂，该工厂负责生成带干扰内容的随机验证码图片并封装。
 	 * 请在创建本工厂实例后调用next方法获得一个随机验证码封装对象，详见next方法注释。
 	 * </p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param charSize int 设定验证码中的字体大小，图片体积将随之改变以确保显示完全
 	 * @param maxLine int 设定干扰线的数量，如果设定为0则不产生干扰线
 	 * @param maxOval int 设定干扰椭圆数量，效果同干扰线
@@ -61,7 +58,7 @@ public class VerificationCodeFactory {
 	 * 
 	 * <h2>生成一个新的随机验证码对象</h2>
 	 * <p>根据指定验证码长度创建一个新的验证码对象并返回。</p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param length int 验证码长度
 	 * @return kohgylw.verification_code.factory.VerificationCode 验证码封装对象，使用方法详见注释
 	 */

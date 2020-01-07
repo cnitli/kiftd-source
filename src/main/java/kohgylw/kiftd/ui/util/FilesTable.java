@@ -1,16 +1,15 @@
 package kohgylw.kiftd.ui.util;
 
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.util.List;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
+import kohgylw.kiftd.server.model.Node;
+import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
+
+import javax.swing.*;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
-
-import kohgylw.kiftd.server.model.Node;
-import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.List;
 
 /**
  * 
@@ -20,7 +19,7 @@ import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
  * 需要使用，请直接创建该类的实例，默认显示空表格。如需更新数据，请使用updateValues方法。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class FilesTable extends JTable {
@@ -172,7 +171,7 @@ public class FilesTable extends JTable {
 	 * 该功能用于进入某一文件夹。如果双击的是文件夹，则返回其对象，否则返回null。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param e
 	 *            java.awt.event.MouseEvent 鼠标事件
 	 * @return kohgylw.kiftd.util.file_system_manager.pojo.Folder 被双击的文件夹

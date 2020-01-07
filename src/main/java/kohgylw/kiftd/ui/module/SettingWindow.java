@@ -1,22 +1,23 @@
 package kohgylw.kiftd.ui.module;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.enumeration.LogLevel;
 import kohgylw.kiftd.server.enumeration.VCLevel;
 import kohgylw.kiftd.server.pojo.ExtendStores;
 import kohgylw.kiftd.server.pojo.ServerSetting;
-import kohgylw.kiftd.ui.callback.*;
+import kohgylw.kiftd.ui.callback.GetServerStatus;
+import kohgylw.kiftd.ui.callback.UpdateSetting;
 import kohgylw.kiftd.ui.pojo.FileSystemPath;
 
 import javax.swing.*;
-import javax.swing.border.*;
-
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -25,7 +26,7 @@ import java.awt.event.*;
  * 设置界面类，负责图形化界面下的设置界面显示。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class SettingWindow extends KiftdDynamicWindow {
@@ -59,7 +60,7 @@ public class SettingWindow extends KiftdDynamicWindow {
 	private SettingWindow() {
 		setUIFont();// 全局字体设置
 		// 窗口主体相关设置
-		(SettingWindow.window = new JDialog(ServerUIModule.window, "kiftd-设置")).setModal(true);
+		(SettingWindow.window = new JDialog(ServerUIModule.window, "设置")).setModal(true);
 		SettingWindow.window.setSize(420, 425);
 		SettingWindow.window.setLocation(150, 150);
 		SettingWindow.window.setDefaultCloseOperation(1);

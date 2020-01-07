@@ -1,34 +1,5 @@
 package kohgylw.kiftd.ui.module;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
-import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.File;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.exception.FilesTotalOutOfLimitException;
 import kohgylw.kiftd.server.exception.FoldersTotalOutOfLimitException;
@@ -38,6 +9,21 @@ import kohgylw.kiftd.util.file_system_manager.FileSystemManager;
 import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
 import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
 
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 
  * <h2>文件管理窗口</h2>
@@ -46,7 +32,7 @@ import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
  * 其中除了包含页面内容外，也封装了一些文件管理必要的操作过程，与文件管理器工具直接对接。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class FSViewer extends KiftdDynamicWindow {
@@ -401,7 +387,7 @@ public class FSViewer extends KiftdDynamicWindow {
 	 * 当一个文件窗口已经打开时，再次调用此方法仅会显示唯一的文件窗口（不会再打开一个新的文件窗口）。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void show() {
 		disableAllButtons();
@@ -448,7 +434,7 @@ public class FSViewer extends KiftdDynamicWindow {
 	 * 该方法能够获得文件管理器的唯一实例，在第一次打开时会进行较耗时的资源加载工作。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return kohgylw.kiftd.ui.module.FSViewer 该视图的唯一实例，程序中只会存在一个该窗口。
 	 */
 	public static FSViewer getInstance() throws SQLException {

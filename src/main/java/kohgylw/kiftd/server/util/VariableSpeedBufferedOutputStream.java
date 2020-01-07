@@ -1,10 +1,9 @@
 package kohgylw.kiftd.server.util;
 
+import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * 
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * 请使用（且仅使用）该方法实现输出操作。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class VariableSpeedBufferedOutputStream extends BufferedOutputStream {
@@ -32,7 +31,7 @@ public class VariableSpeedBufferedOutputStream extends BufferedOutputStream {
 	 * 请使用该方法构造一个实例，然后开始使用。必须按照参数说明给定正确的参数以确保该实例能够正常发挥作用。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param out
 	 *            java.io.OutputStream 原始输出流，传入方法与普通的BufferedOutputStream构造器相同
 	 * @param maxRate
@@ -55,7 +54,7 @@ public class VariableSpeedBufferedOutputStream extends BufferedOutputStream {
 	 * 输出数据。使用方法与原BufferedOutputStream类中定义的方法完全相同。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param b
 	 *            byte[] 数据数组
 	 * @param off

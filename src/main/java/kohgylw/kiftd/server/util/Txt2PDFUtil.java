@@ -1,22 +1,12 @@
 package kohgylw.kiftd.server.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
-
-import com.lowagie.text.Document;
-import com.lowagie.text.Font;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
-import com.lowagie.text.Rectangle;
+import com.lowagie.text.*;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfWriter;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.io.*;
 
 /**
  * 
@@ -26,7 +16,7 @@ import com.lowagie.text.pdf.PdfWriter;
  * IOC容器管理。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -42,7 +32,7 @@ public class Txt2PDFUtil {
 	 * 将输入流中的word文件转换为PDF格式并输出至指定输出流，该方法线程阻塞。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param in
 	 *            java.io.InputStream 输入流，输入docx格式
 	 * @param out

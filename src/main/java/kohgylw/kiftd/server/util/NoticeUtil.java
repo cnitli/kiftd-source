@@ -1,25 +1,16 @@
 package kohgylw.kiftd.server.util;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
-import javax.annotation.Resource;
-
-import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.stereotype.Component;
-
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.parser.ParserEmulationProfile;
 import com.vladsch.flexmark.util.data.MutableDataHolder;
 import com.vladsch.flexmark.util.data.MutableDataSet;
-
 import kohgylw.kiftd.printer.Printer;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.io.*;
 
 /**
  * 
@@ -28,7 +19,7 @@ import kohgylw.kiftd.printer.Printer;
  * 详细功能
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -62,7 +53,7 @@ public class NoticeUtil {
 	 * 同时计算原文件的md5值以便通过该对象的md5字段获取。如已生成旧的“notice.html”文件， 则执行该方法将会覆盖它。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void loadNotice() {
 		File noticeMD = new File(ConfigureReader.instance().getPath(), NOTICE_FILE_NAME);
@@ -106,7 +97,7 @@ public class NoticeUtil {
 	 * 该方法将返回公告的md5标识，从而帮助前端判定是否需要显示公告。如果没有公告，那么该方法会返回null。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return java.lang.String md5字符串或null。
 	 */
 	public String getMd5() {

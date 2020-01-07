@@ -1,24 +1,21 @@
 package kohgylw.kiftd.server.util;
 
-import org.springframework.stereotype.*;
-
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.enumeration.AccountAuth;
 import kohgylw.kiftd.server.mapper.*;
-import javax.annotation.*;
+import kohgylw.kiftd.server.model.*;
+import kohgylw.kiftd.server.pojo.ExtendStores;
+import org.springframework.stereotype.*;
 import org.springframework.web.multipart.*;
+import org.zeroturnaround.zip.*;
+
+import javax.annotation.*;
 import java.io.*;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import kohgylw.kiftd.server.model.*;
-import kohgylw.kiftd.server.pojo.ExtendStores;
-
 import java.util.*;
 import java.util.zip.ZipEntry;
-
-import org.zeroturnaround.zip.*;
 
 /**
  * 
@@ -27,7 +24,7 @@ import org.zeroturnaround.zip.*;
  * 该工具内包含了对文件系统中文件块的所有操作，使用IOC容器进行管理。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.1
  */
 @Component
@@ -45,7 +42,7 @@ public class FileBlockUtil {
 	 * 
 	 * <h2>清理临时文件夹</h2>
 	 * <p>该方法用于清理临时文件夹（如果临时文件夹不存在，则创建它），避免运行时产生的临时文件堆积。该方法应在服务器启动时和关闭过程中调用。</p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void initTempDir() {
 		final String tfPath = ConfigureReader.instance().getTemporaryfilePath();
@@ -75,7 +72,7 @@ public class FileBlockUtil {
 	 * （存放于主文件系统中）或“{存储区编号}_{UUID}.block”（存放在指定编号的扩展存储区中）的形式。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param f
 	 *            MultipartFile 上传文件对象
 	 * @return String 随机生成的保存路径，如果保存失败则返回“ERROR”
@@ -170,7 +167,7 @@ public class FileBlockUtil {
 	 * 该方法用于将上传文件的体积换算以MB表示，以便存入文件系统。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param f
 	 *            org.springframework.web.multipart.MultipartFile 上传文件对象
 	 * @return java.lang.String 计算出来的体积，以MB为单位
@@ -188,7 +185,7 @@ public class FileBlockUtil {
 	 * 根据传入的文件节点对象，删除其在文件系统中保存的对应文件块。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param f
 	 *            kohgylw.kiftd.server.model.Node 要删除的文件节点对象
 	 * @return boolean 删除结果，true为成功
@@ -209,7 +206,7 @@ public class FileBlockUtil {
 	 * 根据传入的文件节点对象，得到其在文件系统中保存的对应文件块。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param f
 	 *            kohgylw.kiftd.server.model.Node 要获得的文件节点对象
 	 * @return java.io.File 对应的文件块抽象路径，获取失败则返回null
@@ -244,7 +241,7 @@ public class FileBlockUtil {
 	 * 将文件系统中不可用的文件块移除，以便保持文件系统的整洁。该操作应在服务器启动或出现问题时执行。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void checkFileBlocks() {
 		Thread checkThread = new Thread(() -> {
@@ -299,7 +296,7 @@ public class FileBlockUtil {
 	 * 该功能用于创建ZIP压缩文件，线程阻塞。如果压缩目标中存在同名情况，则使用“{文件名} (n).{后缀}”或“{文件夹名} n”的形式重命名。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param idList
 	 *            java.util.List<String> 要压缩的文件节点目标ID列表
 	 * @param fidList

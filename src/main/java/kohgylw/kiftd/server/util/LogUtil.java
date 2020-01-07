@@ -1,18 +1,17 @@
 package kohgylw.kiftd.server.util;
 
-import org.springframework.stereotype.*;
-import javax.annotation.*;
-import kohgylw.kiftd.server.mapper.*;
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.enumeration.*;
+import kohgylw.kiftd.server.mapper.*;
+import kohgylw.kiftd.server.model.*;
+import org.springframework.stereotype.*;
+
+import javax.annotation.*;
 import javax.servlet.http.*;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import kohgylw.kiftd.server.model.*;
-
-import java.io.*;
 
 /**
  * 
@@ -21,7 +20,7 @@ import java.io.*;
  * 该工具用于生成日志文件并在其中添加标准化日志。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -279,7 +278,7 @@ public class LogUtil {
 	 * 写入一个下载文件日志，该操作由使用外部链接触发。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param f
 	 *            kohgylw.kiftd.server.model.Node 下载目标
 	 */
@@ -307,7 +306,7 @@ public class LogUtil {
 	 * 当用户试图获取一个资源的下载链接时，记录此事件。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void writeShareFileURLEvent(HttpServletRequest request, Node f) {
 		if (ConfigureReader.instance().inspectLogLevel(LogLevel.Event)) {
@@ -367,7 +366,7 @@ public class LogUtil {
 	 * 记录移动文件操作，谁、在什么时候、将哪个文件移动到哪。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            HttpServletRequest 请求对象
 	 * @param f

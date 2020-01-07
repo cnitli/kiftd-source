@@ -9,7 +9,7 @@ package kohgylw.kiftd.server.pojo;
  * 若成功，则可从newName属性获取创建成功的文件夹新名称，
  * 并应该使用该名称作为“newFolderName”属性进行文件夹上传。
  * </p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class CreateNewFolderByNameRespons {

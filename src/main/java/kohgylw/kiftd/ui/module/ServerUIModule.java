@@ -1,20 +1,24 @@
 package kohgylw.kiftd.ui.module;
 
-import javax.imageio.*;
-import java.io.*;
-import java.sql.SQLException;
-import java.awt.event.*;
-import javax.swing.border.*;
-import java.awt.*;
-import javax.swing.event.*;
-
-import javax.swing.*;
-import java.text.*;
-import java.util.*;
-
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.util.ConfigureReader;
 import kohgylw.kiftd.ui.callback.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ServerUIModule extends KiftdDynamicWindow {
 
@@ -59,7 +63,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 
 	private ServerUIModule() {
 		setUIFont();
-		(ServerUIModule.window = new JFrame("kiftd-服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
+		(ServerUIModule.window = new JFrame("信运网盘-服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
 		ServerUIModule.window.setLocation(100, 100);
 		ServerUIModule.window.setResizable(false);
 		try {
@@ -77,7 +81,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 			}
 			try {
 				(ServerUIModule.trayIcon = new TrayIcon(ImageIO.read(this.getClass().getResourceAsStream(iconType))))
-						.setToolTip("青阳网络文件系统-kiftd");
+						.setToolTip("信运研创文件系统-ceicwp");
 				trayIcon.setImageAutoSize(true);
 				final PopupMenu pMenu = new PopupMenu();
 				final MenuItem exit = new MenuItem("退出(Exit)");
@@ -166,13 +170,13 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.setLayout(new BoxLayout(ServerUIModule.window.getContentPane(), 3));
 		final JPanel titlebox = new JPanel(new FlowLayout(1));
 		titlebox.setBorder(new EmptyBorder(0, 0, (int) (-25 * proportion), 0));
-		final JLabel title = new JLabel("kiftd");
+		final JLabel title = new JLabel("CEICWP");
 		title.setFont(new Font("宋体", 1, (int) (30 * proportion)));
 		titlebox.add(title);
 		ServerUIModule.window.add(titlebox);
 		final JPanel subtitlebox = new JPanel(new FlowLayout(1));
 		subtitlebox.setBorder(new EmptyBorder(0, 0, (int) (-20 * proportion), 0));
-		final JLabel subtitle = new JLabel("青阳网络文件系统-服务器");
+		final JLabel subtitle = new JLabel("信运研创文件系统-服务器");
 		subtitle.setFont(new Font("宋体", 0, (int) (13 * proportion)));
 		subtitlebox.add(subtitle);
 		ServerUIModule.window.add(subtitlebox);
@@ -251,7 +255,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.add(outputBox);
 		final JPanel bottombox = new JPanel(new FlowLayout(1));
 		bottombox.setBorder(new EmptyBorder(0, 0, (int) (-30 * proportion), 0));
-		bottombox.add(new JLabel("--青阳龙野@kohgylw--"));
+		bottombox.add(new JLabel("--信运研创-网盘系统--"));
 		ServerUIModule.window.add(bottombox);
 		ServerUIModule.start.setEnabled(false);
 		ServerUIModule.stop.setEnabled(false);
@@ -273,34 +277,34 @@ public class ServerUIModule extends KiftdDynamicWindow {
 						if (ss.start()) {
 							printMessage("启动完成。正在检查服务器状态...");
 							if (st.getServerStatus()) {
-								printMessage("KIFT服务器已经启动，可以正常访问了。");
+								printMessage("CEWP服务器已经启动，可以正常访问了。");
 							} else {
-								printMessage("KIFT服务器未能成功启动，请检查设置或查看异常信息。");
+								printMessage("CEWP服务器未能成功启动，请检查设置或查看异常信息。");
 							}
 						} else {
 							if(ConfigureReader.instance().getPropertiesStatus() != 0) {
 								switch (ConfigureReader.instance().getPropertiesStatus()) {
 								case ConfigureReader.INVALID_PORT:
-									printMessage("KIFT无法启动：端口设置无效。");
+									printMessage("CEWP无法启动：端口设置无效。");
 									break;
 								case ConfigureReader.INVALID_BUFFER_SIZE:
-									printMessage("KIFT无法启动：缓存设置无效。");
+									printMessage("CEWP无法启动：缓存设置无效。");
 									break;
 								case ConfigureReader.INVALID_FILE_SYSTEM_PATH:
-									printMessage("KIFT无法启动：文件系统路径或某一扩展存储区设置无效。");
+									printMessage("CEWP无法启动：文件系统路径或某一扩展存储区设置无效。");
 									break;
 								case ConfigureReader.INVALID_LOG:
-									printMessage("KIFT无法启动：日志设置无效。");
+									printMessage("CEWP无法启动：日志设置无效。");
 									break;
 								case ConfigureReader.INVALID_VC:
-									printMessage("KIFT无法启动：登录验证码设置无效。");
+									printMessage("CEWP无法启动：登录验证码设置无效。");
 									break;
 								default:
-									printMessage("KIFT无法启动，请检查设置或查看异常信息。");
+									printMessage("CEWP无法启动，请检查设置或查看异常信息。");
 									break;
 								}
 							}else {
-								printMessage("KIFT无法启动，请检查设置或查看异常信息。");
+								printMessage("CEWP无法启动，请检查设置或查看异常信息。");
 							}
 							serverStatusLab.setText(S_STOP);
 						}
@@ -326,12 +330,12 @@ public class ServerUIModule extends KiftdDynamicWindow {
 						if (cs.close()) {
 							printMessage("关闭完成。正在检查服务器状态...");
 							if (st.getServerStatus()) {
-								printMessage("KIFT服务器未能成功关闭，如有需要，可以强制关闭程序（不安全）。");
+								printMessage("CEWP服务器未能成功关闭，如有需要，可以强制关闭程序（不安全）。");
 							} else {
-								printMessage("KIFT服务器已经关闭，停止所有访问。");
+								printMessage("CEWP服务器已经关闭，停止所有访问。");
 							}
 						} else {
-							printMessage("KIFT服务器无法关闭，请手动结束本程序。");
+							printMessage("CEWP服务器无法关闭，请手动结束本程序。");
 						}
 						updateServerStatus();
 					}

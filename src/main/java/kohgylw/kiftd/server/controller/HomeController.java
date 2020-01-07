@@ -1,11 +1,15 @@
 package kohgylw.kiftd.server.controller;
 
-import org.springframework.stereotype.*;
-import javax.annotation.*;
 import kohgylw.kiftd.server.service.*;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.*;
-import javax.servlet.http.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 
@@ -14,7 +18,7 @@ import javax.servlet.http.*;
  * 该控制器用于负责处理kiftd主页（home.html）的所有请求，具体过程请见各个方法注释。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Controller
@@ -179,7 +183,7 @@ public class HomeController {
 	 * 该方法用于处理预览图片请求。配合Viewer.js插件，返回指定格式的JSON数据。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            HttpServletRequest 请求对象
 	 * @return String 预览图片的JSON信息
@@ -197,7 +201,7 @@ public class HomeController {
 	 * 该方法用于预览较大图片时获取其压缩版本以加快预览速度，该请求会根据预览目标的大小自动决定压缩等级。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            HttpServletRequest 请求对象，其中应包含fileId指定预览图片的文件块ID。
 	 * @param response
@@ -263,7 +267,7 @@ public class HomeController {
 	 * 该机制旨在防止某些长耗时操作可能导致Session失效的问题（例如上传、视频播放等），方便用户持续操作。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return String “pong”或“”
 	 */
 	@RequestMapping(value = { "/ping.ajax" }, produces = { CHARSET_BY_AJAX })

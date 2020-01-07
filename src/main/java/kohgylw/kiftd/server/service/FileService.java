@@ -1,6 +1,7 @@
 package kohgylw.kiftd.server.service;
 
 import org.springframework.web.multipart.*;
+
 import javax.servlet.http.*;
 
 public interface FileService {
@@ -33,7 +34,7 @@ public interface FileService {
 	 * 用于验证上传文件夹的合法性，包括权限、是否重名、文件是否超限等。并使用不同的返回结果告知前端应进行的下一步操作。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            javax.servlet.http.HttpServletRequest 请求对象
 	 * @return java.lang.String
@@ -56,7 +57,7 @@ public interface FileService {
 	 * 处理上传文件夹请求并生成对应的文件结构来存储上传的文件，再返回信息告知前端是否上传成功。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            javax.servlet.http.HttpServletRequest 请求对象
 	 * @param file

@@ -1,16 +1,15 @@
 package kohgylw.kiftd.server.util;
 
+import kohgylw.kiftd.printer.Printer;
+import org.springframework.stereotype.Component;
+import ws.schild.jave.FFMPEGLocator;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
-import org.springframework.stereotype.Component;
-
-import kohgylw.kiftd.printer.Printer;
-import ws.schild.jave.FFMPEGLocator;
 
 @Component
 public class KiftdFFMPEGLocator extends FFMPEGLocator {
@@ -32,7 +31,7 @@ public class KiftdFFMPEGLocator extends FFMPEGLocator {
 	 * 在实例化过程中，将根据操作系统来判断使用哪一种ffmpeg引擎可执行文件来进行引用，并将其拷贝到临时目录中以便转码使用。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public KiftdFFMPEGLocator() {
 		// 首先检查是否启用了在线解码功能，如果没有启用则无需初始化ffmpeg引擎

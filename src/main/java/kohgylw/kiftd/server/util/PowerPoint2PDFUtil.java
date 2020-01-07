@@ -1,9 +1,20 @@
 package kohgylw.kiftd.server.util;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
+import com.lowagie.text.Document;
+import com.lowagie.text.Image;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+import kohgylw.kiftd.server.enumeration.PowerPointType;
+import org.apache.poi.hslf.model.Slide;
+import org.apache.poi.hslf.model.TextRun;
+import org.apache.poi.hslf.usermodel.RichTextRun;
+import org.apache.poi.hslf.usermodel.SlideShow;
+import org.apache.poi.xslf.usermodel.*;
+import org.springframework.stereotype.Component;
+
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -11,27 +22,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.List;
-
-import org.apache.poi.hslf.model.Slide;
-import org.apache.poi.hslf.model.TextRun;
-import org.apache.poi.hslf.usermodel.RichTextRun;
-import org.apache.poi.hslf.usermodel.SlideShow;
-import org.apache.poi.xslf.usermodel.XMLSlideShow;
-import org.apache.poi.xslf.usermodel.XSLFShape;
-import org.apache.poi.xslf.usermodel.XSLFSlide;
-import org.apache.poi.xslf.usermodel.XSLFTextParagraph;
-import org.apache.poi.xslf.usermodel.XSLFTextRun;
-import org.apache.poi.xslf.usermodel.XSLFTextShape;
-import org.springframework.stereotype.Component;
-
-import com.lowagie.text.Document;
-import com.lowagie.text.Image;
-import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfWriter;
-
-import kohgylw.kiftd.server.enumeration.PowerPointType;
 
 /**
  * 
@@ -41,7 +31,7 @@ import kohgylw.kiftd.server.enumeration.PowerPointType;
  * IOC容器管理。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -51,7 +41,7 @@ public class PowerPoint2PDFUtil {
 	 * 
 	 * <h2>执行PPT格式转换（ppt/pptx）</h2>
 	 * <p>将输入流中的PPT文件转换为PDF格式并输出至指定输出流，该方法线程阻塞。</p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param in java.io.InputStream 输入流，输入ppt/pptx格式
 	 * @param out java.io.OutputStream 输出流，输出PDF格式
 	 * @param type kohgylw.kiftd.server.enumeration.PowerPointType 使用何种标准进行解析（ppt/pptx）

@@ -4,7 +4,7 @@ package kohgylw.kiftd.server.pojo;
  * 
  * <h2>注册信息封装类</h2>
  * <p>该封装类用于封装前端发送的JSON注册信息。</p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class SignUpInfoPojo {

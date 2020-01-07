@@ -20,7 +20,7 @@ public interface FolderService
      * 执行后，将返回一个结果json对象，其中包括result和newName两个属性。result的值可为：success 成功，error 失败。
      * 若创建成功，则可从newName中获取这个新建的文件夹名称，并在上传文件夹时使用该名称作为newFolderName属性的值。
      * </p>
-     * @author 青阳龙野(kohgylw)
+     * @author 信运研创(ceicit)
      * @param request javax.servlet.http.HttpServletRequest 请求对象
      * @return java.lang.String 返回的结果json对象
      */

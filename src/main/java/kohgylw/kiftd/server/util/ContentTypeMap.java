@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
  * 
  * <h2>后缀名与ContentType对照表</h2>
  * <p>该工具类中保存了常见资源后缀名所对应的ContentType类型，便于返回资源数据时声明其ContentType格式。详见public String getContentType(String suffix)方法。</p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -16,7 +16,7 @@ public class ContentTypeMap {
 	 * 
 	 * <h2>通过后缀名获取对应的ContentType</h2>
 	 * <p>由文件的后缀名得到相应的ContentType以便浏览器识别该资源。该方法将返回ContentType类型字符串，型如“application/octet-stream”。</p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param suffix java.lang.String 资源的后缀名，必须以“.”开头，例如“.jpg”
 	 * @return java.lang.String 传入后缀所对应的ContentType，若无对应类型则统一返回“application/octet-stream”（二进制流）
 	 */

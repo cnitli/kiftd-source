@@ -1,25 +1,17 @@
 package kohgylw.kiftd.server.listener;
 
-import javax.servlet.annotation.*;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchEvent;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.*;
-
 import kohgylw.kiftd.printer.Printer;
 import kohgylw.kiftd.server.mapper.FolderMapper;
 import kohgylw.kiftd.server.util.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import java.io.File;
+import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -28,7 +20,7 @@ import kohgylw.kiftd.server.util.*;
  * 该监听器用于在服务器启动和关闭时执行一些必要的初始化或清理操作。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @WebListener

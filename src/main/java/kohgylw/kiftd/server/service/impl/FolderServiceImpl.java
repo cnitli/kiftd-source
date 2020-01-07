@@ -1,19 +1,17 @@
 package kohgylw.kiftd.server.service.impl;
 
-import kohgylw.kiftd.server.service.*;
-import org.springframework.stereotype.*;
-
 import com.google.gson.Gson;
-
-import kohgylw.kiftd.server.mapper.*;
-import javax.annotation.*;
-import javax.servlet.http.*;
 import kohgylw.kiftd.server.enumeration.*;
 import kohgylw.kiftd.server.listener.ServerInitListener;
+import kohgylw.kiftd.server.mapper.*;
 import kohgylw.kiftd.server.model.*;
 import kohgylw.kiftd.server.pojo.CreateNewFolderByNameRespons;
+import kohgylw.kiftd.server.service.*;
 import kohgylw.kiftd.server.util.*;
+import org.springframework.stereotype.*;
 
+import javax.annotation.*;
+import javax.servlet.http.*;
 import java.nio.charset.Charset;
 import java.util.*;
 
@@ -211,7 +209,7 @@ public class FolderServiceImpl implements FolderService {
 	 * 父文件夹的约束等级改为1（仅小组）时，所有约束等级为0（公开的）的子文件夹的约束等级也会提升为1， 而所有约束等级为2（仅自己）的子文件夹则不会受影响。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param folderId
 	 *            要修改的文件夹ID
 	 * @param c

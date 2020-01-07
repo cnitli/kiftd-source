@@ -1,19 +1,17 @@
 package kohgylw.kiftd.server.filter;
 
-import javax.servlet.annotation.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.core.annotation.Order;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import kohgylw.kiftd.server.util.*;
 import kohgylw.kiftd.server.enumeration.*;
 import kohgylw.kiftd.server.mapper.FolderMapper;
 import kohgylw.kiftd.server.mapper.NodeMapper;
 import kohgylw.kiftd.server.model.Node;
+import kohgylw.kiftd.server.util.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.Order;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
 import java.io.*;
 
 /**
@@ -23,7 +21,7 @@ import java.io.*;
  * 该过滤器用于检查所有发往资源文件夹（文件块、临时文件夹）的请求，判断该请求权限是否合法，并指定请求MIME类型为输出流。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @WebFilter({ "/fileblocks/*" })

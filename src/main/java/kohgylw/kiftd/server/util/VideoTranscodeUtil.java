@@ -1,21 +1,19 @@
 package kohgylw.kiftd.server.util;
 
+import kohgylw.kiftd.server.mapper.NodeMapper;
+import kohgylw.kiftd.server.model.Node;
+import kohgylw.kiftd.server.pojo.VideoTranscodeThread;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Component;
+import ws.schild.jave.AudioAttributes;
+import ws.schild.jave.EncodingAttributes;
+import ws.schild.jave.VideoAttributes;
+
+import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.stereotype.Component;
-
-import kohgylw.kiftd.server.mapper.NodeMapper;
-import kohgylw.kiftd.server.model.Node;
-import kohgylw.kiftd.server.pojo.VideoTranscodeThread;
-import ws.schild.jave.AudioAttributes;
-import ws.schild.jave.EncodingAttributes;
-import ws.schild.jave.VideoAttributes;
 
 /**
  * 
@@ -24,7 +22,7 @@ import ws.schild.jave.VideoAttributes;
  * 该工具用于进行视频转码操作，使用Spring IOC容器管理。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Component
@@ -61,7 +59,7 @@ public class VideoTranscodeUtil {
 	 * 以百分制返回指定ID的视频转码进度，如若未开始则自动开始。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param fId
 	 *            java.lang.String 转码视频的ID
 	 * @return java.lang.String 转码进度，按百分制返回，例如“1.2”代表完成1.2%，返回null则参数不正确。

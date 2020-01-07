@@ -1,19 +1,13 @@
 package kohgylw.kiftd.server.pojo;
 
+import kohgylw.kiftd.printer.Printer;
+import kohgylw.kiftd.server.util.ConfigureReader;
+import org.apache.commons.codec.digest.DigestUtils;
+import ws.schild.jave.*;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.UUID;
-
-import org.apache.commons.codec.digest.DigestUtils;
-
-import kohgylw.kiftd.printer.Printer;
-import kohgylw.kiftd.server.util.ConfigureReader;
-import ws.schild.jave.Encoder;
-import ws.schild.jave.EncoderProgressListener;
-import ws.schild.jave.EncodingAttributes;
-import ws.schild.jave.FFMPEGLocator;
-import ws.schild.jave.MultimediaInfo;
-import ws.schild.jave.MultimediaObject;
 
 /**
  * 
@@ -22,7 +16,7 @@ import ws.schild.jave.MultimediaObject;
  * 其中存放了视频的转码信息。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class VideoTranscodeThread {
@@ -77,7 +71,7 @@ public class VideoTranscodeThread {
 	 * 
 	 * <h2>终止当前转码过程</h2>
 	 * <p>执行该方法将中断正在进行的转码，并删除原有的输出文件。</p>
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void abort() {
 		if(encoder!=null) {

@@ -1,26 +1,19 @@
 package kohgylw.kiftd.server.filter;
 
-import java.io.IOException;
+import kohgylw.kiftd.server.util.ConfigureReader;
+import org.springframework.core.annotation.Order;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.core.annotation.Order;
-
-import kohgylw.kiftd.server.util.ConfigureReader;
+import java.io.IOException;
 
 /**
  * 
  * <h2>受保护URL禁止直接访问过滤器</h2>
  * <p>该过滤器主要用于避免访问者直接访问某些资源，这些URL仅支持转发进入而不能直接访问。</p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @WebFilter({ "/prv/*" })

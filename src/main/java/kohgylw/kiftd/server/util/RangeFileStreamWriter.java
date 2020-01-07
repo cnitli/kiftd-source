@@ -1,13 +1,12 @@
 package kohgylw.kiftd.server.util;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.charset.Charset;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * 
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * 该操作已换回较为简单的RandomAccessFile实现（效率与NIO相近，更节省内存）。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class RangeFileStreamWriter {
@@ -29,7 +28,7 @@ public class RangeFileStreamWriter {
 	 * 处理普通的或带有断点续传参数的下载请求，并按照请求方式提供相应的输出流写出。请传入相应的参数并执行该方法以开始传输。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            javax.servlet.http.HttpServletRequest 请求对象
 	 * @param response

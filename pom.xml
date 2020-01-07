@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>kohgylw</groupId>
-	<artifactId>kiftd</artifactId>
+	<groupId>ceic</groupId>
+	<artifactId>ceicwp</artifactId>
 	<version>1.0.27-RELEASE</version>
 	<packaging>jar</packaging>
 
@@ -160,7 +160,7 @@
 			<artifactId>commons-codec</artifactId>
 		</dependency>
 		<!-- end MD5 -->
-		
+
 		<!-- Markdown 文本解析器 -->
 		<!-- https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark -->
 		<dependency>
@@ -221,5 +221,27 @@
 		</plugins>
 	</build>
 	<!-- end 项目基本配置 -->
-
+	<repositories>
+		<repository>
+			<id>ali-maven</id>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+			<!-- <url>https://oss.sonatype.org/content/repositories/releases</url> -->
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>oss-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

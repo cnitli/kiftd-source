@@ -1,14 +1,15 @@
 package kohgylw.kiftd.server.configation;
 
-import javax.sql.*;
-import org.springframework.jdbc.datasource.*;
 import kohgylw.kiftd.server.util.*;
-import org.springframework.context.annotation.*;
 import org.mybatis.spring.*;
-import org.springframework.beans.factory.annotation.*;
 import org.mybatis.spring.mapper.*;
-import java.io.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.annotation.*;
 import org.springframework.core.io.*;
+import org.springframework.jdbc.datasource.*;
+
+import javax.sql.*;
+import java.io.*;
 
 /**
  * 
@@ -17,7 +18,7 @@ import org.springframework.core.io.*;
  * 该配置类定义了服务器组件使用的MyBatis将如何链接数据库。如需更换其他数据库，请在此配置自己的数据源并替换原有数据源。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Configurable

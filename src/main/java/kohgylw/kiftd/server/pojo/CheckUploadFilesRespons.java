@@ -11,7 +11,7 @@ import java.util.List;
  * uploadKey（代表上传凭证，必须使用该凭证上传）
  * 和pereFileNameList（重名列表，仅当checkResult为hasExistsNames时需要检查，否则可忽略）
  * </p>
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class CheckUploadFilesRespons {

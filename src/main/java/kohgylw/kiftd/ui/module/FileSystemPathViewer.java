@@ -1,29 +1,20 @@
 package kohgylw.kiftd.ui.module;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
+import kohgylw.kiftd.printer.Printer;
+import kohgylw.kiftd.server.util.ConfigureReader;
+import kohgylw.kiftd.ui.pojo.FileSystemPath;
+import kohgylw.kiftd.ui.util.PathsTable;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-import kohgylw.kiftd.printer.Printer;
-import kohgylw.kiftd.server.util.ConfigureReader;
-import kohgylw.kiftd.ui.pojo.FileSystemPath;
-import kohgylw.kiftd.ui.util.PathsTable;
 
 /**
  * 
@@ -32,7 +23,7 @@ import kohgylw.kiftd.ui.util.PathsTable;
  * 该窗口用于提供用户管理文件系统路径的界面功能，包括修改主文件系统路径和新增、删除、修改扩展存储区的功能。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class FileSystemPathViewer extends KiftdDynamicWindow {
@@ -269,7 +260,7 @@ public class FileSystemPathViewer extends KiftdDynamicWindow {
 	 * 当一个文件窗口已经打开时，再次调用此方法仅会显示唯一的文件窗口（不会再打开一个新的文件窗口）。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void show() {
 		disableAllButtons();
@@ -289,7 +280,7 @@ public class FileSystemPathViewer extends KiftdDynamicWindow {
 	 * 该方法能够获得文件管理器的唯一实例，在第一次打开时会进行较耗时的资源加载工作。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return kohgylw.kiftd.ui.module.FSViewer 该视图的唯一实例，程序中只会存在一个该窗口。
 	 */
 	public static FileSystemPathViewer getInstance() {

@@ -1,21 +1,23 @@
 package kohgylw.kiftd.server.configation;
 
-import org.springframework.web.servlet.resource.*;
-
 import com.google.gson.Gson;
-
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.web.servlet.config.annotation.*;
-
 import kohgylw.kiftd.server.pojo.ExtendStores;
-import kohgylw.kiftd.server.util.*;
-import java.io.*;
+import kohgylw.kiftd.server.util.ConfigureReader;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
+
+import javax.servlet.MultipartConfigElement;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.*;
-import org.springframework.boot.web.servlet.*;
-import org.springframework.context.annotation.*;
 
 /**
  * 
@@ -24,7 +26,7 @@ import org.springframework.context.annotation.*;
  * 该Spring配置类主要负责配置kiftd网页服务器的处理行为。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @Configurable

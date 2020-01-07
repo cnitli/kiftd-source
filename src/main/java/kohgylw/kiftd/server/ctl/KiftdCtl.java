@@ -1,22 +1,21 @@
 package kohgylw.kiftd.server.ctl;
 
-import org.springframework.boot.web.servlet.server.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.context.annotation.*;
-import kohgylw.kiftd.server.configation.*;
-import org.springframework.context.*;
 import kohgylw.kiftd.printer.*;
+import kohgylw.kiftd.server.configation.*;
 import kohgylw.kiftd.server.util.*;
-
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.http11.Http11NioProtocol;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.boot.*;
-import org.springframework.http.*;
+import org.springframework.boot.autoconfigure.*;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.*;
+import org.springframework.boot.web.servlet.server.*;
+import org.springframework.context.*;
+import org.springframework.context.annotation.*;
+import org.springframework.http.*;
 
 /**
  * 
@@ -26,7 +25,7 @@ import org.springframework.boot.web.server.*;
  * 应用入口，负责初始化SpringBoot容器。详见内置公有方法。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 @SpringBootApplication
@@ -42,7 +41,7 @@ public class KiftdCtl {
 	 * 该方法将启动SpringBoot服务器引擎并返回启动结果。该过程较为耗时，为了不阻塞主线程，请在额外线程中执行该方法。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return boolean 启动结果
 	 */
 	public boolean start() {
@@ -75,7 +74,7 @@ public class KiftdCtl {
 	 * 该方法将关闭服务器引擎并清理缓存文件。该方法较为耗时。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return boolean 关闭结果
 	 */
 	public boolean stop() {
@@ -101,7 +100,7 @@ public class KiftdCtl {
 	 * 该方法返回服务器引擎的运行状态，该状态由内置属性记录，且唯一。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return boolean 服务器是否启动
 	 */
 	public boolean started() {

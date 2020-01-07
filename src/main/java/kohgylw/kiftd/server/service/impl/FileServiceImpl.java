@@ -1,29 +1,25 @@
 package kohgylw.kiftd.server.service.impl;
 
-import kohgylw.kiftd.server.service.*;
-
-import org.mybatis.spring.MyBatisSystemException;
-import org.springframework.stereotype.*;
-import kohgylw.kiftd.server.mapper.*;
-import javax.annotation.*;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import kohgylw.kiftd.server.enumeration.*;
 import kohgylw.kiftd.server.exception.FoldersTotalOutOfLimitException;
 import kohgylw.kiftd.server.listener.ServerInitListener;
+import kohgylw.kiftd.server.mapper.*;
 import kohgylw.kiftd.server.model.*;
 import kohgylw.kiftd.server.pojo.CheckImportFolderRespons;
 import kohgylw.kiftd.server.pojo.CheckUploadFilesRespons;
-
+import kohgylw.kiftd.server.service.*;
+import kohgylw.kiftd.server.util.*;
+import org.mybatis.spring.MyBatisSystemException;
+import org.springframework.stereotype.*;
 import org.springframework.web.multipart.*;
 
+import javax.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.nio.charset.Charset;
-
-import kohgylw.kiftd.server.util.*;
 import java.util.*;
-
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 
 /**
  * 
@@ -32,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
  * 该类负责对文件相关的服务进行实现操作，例如下载和上传等，各方法功能详见接口定义。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  * @see kohgylw.kiftd.server.service.FileService
  */
@@ -1081,7 +1077,7 @@ public class FileServiceImpl extends RangeFileStreamWriter implements FileServic
 	 * 示例3：输入"aaa//bbb/ccc.c"，返回["aaa","bbb"]。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param path
 	 *            java.lang.String 原路径字符串
 	 * @return java.lang.String[] 解析出的目录层级
@@ -1107,7 +1103,7 @@ public class FileServiceImpl extends RangeFileStreamWriter implements FileServic
 	 * 从相对路径中获得文件名，若解析失败则返回null。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param java.lang.String
 	 *            需要解析的相对路径
 	 * @return java.lang.String 文件名

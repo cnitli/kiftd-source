@@ -1,23 +1,21 @@
 package kohgylw.kiftd.server.service.impl;
 
+import com.google.gson.Gson;
+import kohgylw.kiftd.server.enumeration.*;
+import kohgylw.kiftd.server.mapper.*;
+import kohgylw.kiftd.server.model.*;
+import kohgylw.kiftd.server.pojo.*;
 import kohgylw.kiftd.server.service.*;
+import kohgylw.kiftd.server.util.*;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.stereotype.*;
 
-import com.google.gson.Gson;
-
-import kohgylw.kiftd.server.mapper.*;
 import javax.annotation.*;
 import javax.servlet.http.*;
-import kohgylw.kiftd.server.pojo.*;
-import kohgylw.kiftd.server.enumeration.*;
-import kohgylw.kiftd.server.model.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
-import kohgylw.kiftd.server.util.*;
-import net.coobird.thumbnailator.Thumbnails;
 
 @Service
 public class ShowPictureServiceImpl implements ShowPictureService {
@@ -41,7 +39,7 @@ public class ShowPictureServiceImpl implements ShowPictureService {
 	 * 该方法用于根据请求获取预览图片列表并进行封装，对于过大图片会进行压缩。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param request
 	 *            HttpServletRequest 请求对象，需包含fileId字段（需预览的图片ID）。
 	 * @return PictureViewList 预览列表封装对象，详见其注释。

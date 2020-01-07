@@ -1,5 +1,16 @@
 package kohgylw.kiftd.util.file_system_manager;
 
+import kohgylw.kiftd.printer.Printer;
+import kohgylw.kiftd.server.exception.FilesTotalOutOfLimitException;
+import kohgylw.kiftd.server.exception.FoldersTotalOutOfLimitException;
+import kohgylw.kiftd.server.model.Node;
+import kohgylw.kiftd.server.pojo.ExtendStores;
+import kohgylw.kiftd.server.util.ConfigureReader;
+import kohgylw.kiftd.server.util.FileNodeUtil;
+import kohgylw.kiftd.server.util.ServerTimeUtil;
+import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
+import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,23 +23,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
-
-import kohgylw.kiftd.printer.Printer;
-import kohgylw.kiftd.server.exception.FilesTotalOutOfLimitException;
-import kohgylw.kiftd.server.exception.FoldersTotalOutOfLimitException;
-import kohgylw.kiftd.server.model.Node;
-import kohgylw.kiftd.server.pojo.ExtendStores;
-import kohgylw.kiftd.server.util.ConfigureReader;
-import kohgylw.kiftd.server.util.FileNodeUtil;
-import kohgylw.kiftd.server.util.ServerTimeUtil;
-import kohgylw.kiftd.util.file_system_manager.pojo.Folder;
-import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
+import java.util.*;
 
 /**
  * 
@@ -40,7 +35,7 @@ import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
  * 每次使用前都请手动调用kohgylw.kiftd.server.util.FileNodeUtil.initNodeTableToDataBase()方法以确保节点链接最新。
  * </p>
  * 
- * @author 青阳龙野(kohgylw)
+ * @author 信运研创(ceicit)
  * @version 1.0
  */
 public class FileSystemManager {
@@ -113,7 +108,7 @@ public class FileSystemManager {
 	 * 请通过该方法获取其唯一实例并使用，首次获取时可能会耗时并加载资源。注意，请务必确保在每次使用前均已重新执行初始化节点操作。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @return kohgylw.kiftd.util.file_system_manager.FileSystemManager 唯一实例
 	 */
 	public static FileSystemManager getInstance() {
@@ -131,7 +126,7 @@ public class FileSystemManager {
 	 * </p>
 	 * 
 	 * @see kohgylw.kiftd.util.file_system_manager.pojo.FolderView
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param folderId
 	 *            java.lang.String 文件夹ID
 	 * @return kohgylw.kiftd.util.file_system_manager.pojo.FolderView 指定的文件夹视图
@@ -153,7 +148,7 @@ public class FileSystemManager {
 	 * 该方法将直接删除指定文件夹和文件，该操作无法恢复。鉴于操作较为耗时，该操作将在一个新线程中进行。操作时，您可以根据“per”属性来实时获取该操作的进度。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param foldersId
 	 *            java.lang.String[] 要删除的文件夹ID
 	 * @param filesId
@@ -179,7 +174,7 @@ public class FileSystemManager {
 	 * 将文件夹ID和文件ID指向的内容导出至指定路径，并规定如果存在该文件时应进行何种处理。鉴于操作较为耗时，该操作将在一个新线程中进行。操作时，您可以根据“per”属性来实时获取该操作的进度。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param foldersId
 	 *            java.lang.String[] 要导出的文件夹ID
 	 * @param filesId
@@ -210,7 +205,7 @@ public class FileSystemManager {
 	 * 如果返回值为0则可以直接导入，否则应选择覆盖或是保留两者或是取消。注意：该方法会阻塞线程。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param files
 	 *            java.io.File[] 要检查的文件对象
 	 * @param folderId
@@ -242,7 +237,7 @@ public class FileSystemManager {
 	 * 如果返回值为0则可以直接导出，否则应选择覆盖或是保留两者或是取消。注意：该方法会阻塞线程。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param foldersId
 	 *            java.lang.String[] 要导出的文件夹ID
 	 * @param filesId
@@ -285,7 +280,7 @@ public class FileSystemManager {
 	 * 将指定文件导入至文件系统，其中文件夹会自动创建，可以规定如何处理已存在的文件。鉴于操作较为耗时，该操作将在一个新线程中进行。操作时，您可以根据“per”属性来实时获取该操作的进度。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param files
 	 *            java.io.File[] 要导入的文件对象
 	 * @param folderId
@@ -314,7 +309,7 @@ public class FileSystemManager {
 	 * 该功能用于提供浏览文件夹功能，您可以通过迭代调用本方法来获取文件系统内的全部文件夹，注意：该操作会阻塞线程。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param folderId
 	 *            java.lang.String 需要查询的父文件夹ID
 	 * @return java.util.List<kohgylw.kiftd.server.model.Folder> 文件夹对象列表，如果没有结果则长度为0
@@ -756,7 +751,7 @@ public class FileSystemManager {
 	 * 这是一个不安全的终止操作，可能会导致文件损坏，但不会污染文件节点系统。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 */
 	public void cannel() {
 		message = "正在终止，请稍候...";
@@ -894,7 +889,7 @@ public class FileSystemManager {
 	 * 该方法用于统计指定文件夹下的已有文件数量。应在各种存入新文件操作前先调用该方法来判断是否超过规定值。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param pfId
 	 *            java.lang.String 需要统计的文件夹ID
 	 * @return long 统计数目
@@ -919,7 +914,7 @@ public class FileSystemManager {
 	 * 该方法用于统计指定文件夹下的已有文件夹数量。应在各种创建新文件夹操作前先调用该方法来判断是否超过规定值。
 	 * </p>
 	 * 
-	 * @author 青阳龙野(kohgylw)
+	 * @author 信运研创(ceicit)
 	 * @param pfId
 	 *            java.lang.String 需要统计的文件夹ID
 	 * @return long 统计数目
