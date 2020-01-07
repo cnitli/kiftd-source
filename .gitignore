@@ -108,3 +108,12 @@ target
 /package-lock.json
 /kiftd.iml
 /target/
+conf/account.properties
+conf/server.properties
+filesystem/fileblocks/
+filesystem/filenodes/kift.mv.db
+filesystem/filenodes/kift.trace.db
+filesystem/temporaryfiles/
+logs/2020_01_01.klog
+logs/2020_01_02.klog
+webContext/js/home.min.js
